@@ -13,7 +13,8 @@ echo "age:$age<br>";
 echo "gender:$gender<br>";
 echo "marry_status:$marry_status<br>";
 
-$sql="UPDATE WATTANA SET name='$name', age='$age', gender='$gender', marry_status='$marry_status' WHERE id=$id";
+$sql="INSERT INTO WATTANA(name,age,gender,marry_status)";
+$sql.=" VALUES('$name','$age','$gender','$marry_status')";
 $conn->query($sql);
 header( "location: list.php" );
 ?>
