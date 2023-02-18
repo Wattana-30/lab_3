@@ -9,6 +9,7 @@
 <body>
 <?php
 require("connect_db.php");
+<<<<<<< HEAD
 if(isset($_GET["keyword"])){
   $keyword=$_GET["keyword"];
 }else{
@@ -21,11 +22,17 @@ if(isset($_GET["keyword"])){
 </form>
 <?php
 $sql = "SELECT id, name, age, gender, marry_status FROM WATTANA WHERE name LIKE '%$keyword%'";
+=======
+
+
+$sql = "SELECT id, name, age, gender, marry_status FROM survey";
+>>>>>>> 71686749327f8b9d552935a0bdea7bef46a99a4f
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
+<<<<<<< HEAD
     if($row["gender"]=="m"){
         if($row["age"]<15){
             echo "ด.ช." . $row["name"];
@@ -40,6 +47,26 @@ if ($result->num_rows > 0) {
           echo "ด.ญ." . $row["name"];
         }else{
           echo "น.ส." . $row["name"];
+=======
+    if($row["gender"]=="M"){
+        if($row["age"]<15){
+            echo"ด.ช.".$row["name"]."<br>";
+        }
+        else{
+          echo"นาย".$row["name"]."<br>";
+        }   
+    }
+    else if($row["gender"]=="F"){
+      if($row["age"]<15){
+        echo"ด.ญ.".$row["name"]."<br>";
+      }
+      else{
+        if($row["marry_status"]=="M"){
+          echo"นาง".$row["name"]."<br>";
+        }
+        else{
+          echo"นางสาว".$row["name"]."<br>";
+>>>>>>> 71686749327f8b9d552935a0bdea7bef46a99a4f
         }
       }
     }
